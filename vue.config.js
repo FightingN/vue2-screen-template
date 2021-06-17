@@ -3,7 +3,19 @@ const path = require("path");
 function join(dir) {
   return path.join(__dirname, dir);
 }
+function diffOutputDir() {
+  if (process.env.VUE_APP_SCREEN === "prod") {
+    return "screen";
+  } else if (process.env.VUE_APP_SCREEN === "dev") {
+    return "dist";
+  }
+}
+
 module.exports = {
+  // 资源根路径
+  publicPath: "./",
+  // 打包根路径
+  outputDir: diffOutputDir(),
   lintOnSave: false,
   // 调整 webpack 配置
   chainWebpack: config => {
