@@ -33,6 +33,12 @@ module.exports = {
       .options({
         symbolId: "icon-[name]"
       });
+    // 打包结果分析
+    if (process.env.NODE_ENV === "development") {
+      config
+        .plugin("webpack-bundle-analyzer")
+        .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin);
+    }
   },
   // 调整 webpack 配置
   configureWebpack: config => {
