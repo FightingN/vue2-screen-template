@@ -12,22 +12,27 @@
 </template>
 
 <script>
-import { debounce } from 'utils/common'
 export default {
   name: 'ScaleBox',
   props: {},
   data () {
     return {
       scale: 0,
-      // width: 1920,
-      // height: 1080
-      width: 3520,
-      height: 1996
+      width: 1920,
+      height: 1080
+      // width:
+      //   window.innerWidth ||
+      //   document.documentElement.clientWidth ||
+      //   document.body.clientWidth,
+      // height:
+      //   window.innerHeight ||
+      //   document.documentElement.clientHeight ||
+      //   document.body.clientHeight
     }
   },
   mounted () {
     this.setScale()
-    window.addEventListener('resize', debounce(this.setScale))
+    window.addEventListener('resize', this.debounce(this.setScale))
   },
   methods: {
     getScale () {
@@ -47,22 +52,22 @@ export default {
       if (this.$refs.ScaleBox) {
         this.$refs.ScaleBox.style.setProperty('--scale', this.scale)
       }
+    },
+    debounce (fn, delay) {
+      const delays = delay || 500
+      let timer
+      return function () {
+        const th = this
+        const args = arguments
+        if (timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(function () {
+          timer = null
+          fn.apply(th, args)
+        }, delays)
+      }
     }
-    // debounce (fn, delay) {
-    //   const delays = delay || 500
-    //   let timer
-    //   return function () {
-    //     const th = this
-    //     const args = arguments
-    //     if (timer) {
-    //       clearTimeout(timer)
-    //     }
-    //     timer = setTimeout(function () {
-    //       timer = null
-    //       fn.apply(th, args)
-    //     }, delays)
-    //   }
-    // }
   }
 }
 </script>
@@ -81,5 +86,6 @@ export default {
   top: 50%;
   transition: 0.3s;
   z-index: 999;
+  background: rgba(255, 0, 0, 0.3);
 }
 </style>
