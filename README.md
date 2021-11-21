@@ -71,10 +71,8 @@ props: {
 
 [书写顺序](https://vue3js.cn/docs/zh/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-c-%E7%9A%84%E8%A7%84%E5%88%99-%E6%8E%A8%E8%8D%90-%E5%B0%86%E9%80%89%E6%8B%A9%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%88%90%E6%9C%AC%E6%9C%80%E5%B0%8F%E5%8C%96)
 
-### rem 自适应方案
+### 自适应方案
 
-设计稿是基于 1920\*1080 的,将设计稿分成了 24 等分。项目中宽度可直接写 px 单位,但是高度需要用%或者是 vh
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 目前使用的是 rem
+- 设计稿是基于 1920\*1080 的,将设计稿分成了 24 等分。项目中宽度可直接写 px 单位,高度也可以用 px,或者用%(前提是 body 和 html 等父元素的高度设置上 100%)
+- 注意:行内样式的 px 不能被转化成 rem

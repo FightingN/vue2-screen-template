@@ -2,7 +2,9 @@
   <div class="home">
     <screen-text></screen-text>
     <EchartsText></EchartsText>
-    <ScreenDropdownMenu></ScreenDropdownMenu>
+    <div class="height1">
+      <ScreenDropdownMenu></ScreenDropdownMenu>
+    </div>
   </div>
 </template>
 
@@ -17,7 +19,12 @@ export default {
 .home {
   box-sizing: border-box;
   width: 1920px;
-  height: 100vh;
+  height: 100%;
   background: #eee;
+  .height1 {
+    width: 100%;
+    height: 50px;
+    border: 1px solid red;
+  }
 }
 </style>
