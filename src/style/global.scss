@@ -1,0 +1,122 @@
+// 维护全局通用样式
+/**************去掉标签默认样式******************/
+i {
+  font-style: normal;
+}
+
+/**************边框倒角样式开始******************/
+$border-angle-width:2px;
+$border-angle-color:#2bccff;
+
+.border-top-angle {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-top: $border-angle-width solid $border-angle-color;
+    border-left: $border-angle-width solid $border-angle-color;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-top: $border-angle-width solid $border-angle-color;
+    border-right: $border-angle-width solid $border-angle-color;
+  }
+}
+
+.border-bottom-angle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: $border-angle-width solid $border-angle-color;
+    border-left: $border-angle-width solid $border-angle-color;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: $border-angle-width solid $border-angle-color;
+    border-right: $border-angle-width solid $border-angle-color;
+  }
+}
+
+/**************边框倒角样式结束******************/
+
+/**************左边动画******************/
+//动画-从左向右划出
+@keyframes leftIn {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+//动画-从右向左划出
+@keyframes rightIn {
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+//动画-从上向下划出
+@keyframes topIn {
+  from {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/**************右边动画******************/
+
+// 市北大屏右侧标题样式
+.right-title {
+  height: 38px;
+  width: 200px;
+  font-size: 20px;
+  font-family: 'PingFang-SC-Bold';
+  color: #fefefe;
+  box-sizing: border-box;
+  padding: 5px 0 0px 13px;
+  background-image: linear-gradient(to right,
+      rgba(36, 109, 201, 0.6) 0%,
+      rgba(0, 0, 0, 0) 40%);
+}

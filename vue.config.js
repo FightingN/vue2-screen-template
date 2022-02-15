@@ -22,6 +22,7 @@ module.exports = {
     config.resolve.alias
       .set("views", join("src/views"))
       .set("utils", join("src/utils"))
+      .set("style", join("src/style"))
       .set("components", join("src/components"));
     config.module
       .rule("svg")
