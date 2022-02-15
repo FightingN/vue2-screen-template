@@ -1,18 +1,10 @@
 <template>
-  <div class="home">
-    <screen-text></screen-text>
-    <EchartsText></EchartsText>
-    <div class="height1">
-      <ScreenDropdownMenu></ScreenDropdownMenu>
-    </div>
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
-import EchartsText from './EchartsText'
 export default {
-  name: 'Home',
-  components: { EchartsText }
+  name: 'Home'
 }
 </script>
 <style lang="scss" scoped>
@@ -21,10 +13,6 @@ export default {
   width: 1920px;
   height: 100%;
   background: #eee;
-  .height1 {
-    width: 100%;
-    height: 50px;
-    border: 1px solid red;
-  }
+  border: 1px solid red;
 }
 </style>
