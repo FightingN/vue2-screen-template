@@ -1,21 +1,18 @@
 const path = require("path");
-
+const version = new Date().getTime();
 function join(dir) {
   return path.join(__dirname, dir);
-}
-function diffOutputDir() {
-  if (process.env.VUE_APP_SCREEN === "prod") {
-    return "web";
-  } else if (process.env.VUE_APP_SCREEN === "dev") {
-    return "dist";
-  }
 }
 
 module.exports = {
   // 资源根路径
-  publicPath: "./",
+  publicPath: `/${process.env.VUE_APP_PACKAGENAME}/`,
   // 打包根路径
-  outputDir: diffOutputDir(),
+  outputDir: process.env.VUE_APP_PACKAGENAME,
+
+  // 静态资源文件夹名
+  assetsDir: "static",
+
   lintOnSave: false,
   // 调整 webpack 配置
   chainWebpack: config => {
@@ -41,6 +38,11 @@ module.exports = {
         .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin);
     }
   },
+  // js分离打包路径
+  configureWebpack: config => {
+    config.output.filename = `static/js/[name].${process.env.NODE_ENV}.${process.env.VUE_APP_VERSION}.${version}.js`;
+    config.output.chunkFilename = `static/js/[name].${process.env.NODE_ENV}.${process.env.VUE_APP_VERSION}.${version}.js`;
+  },
   // css相关配置
   css: {
     // 启用 CSS modules
@@ -48,6 +50,12 @@ module.exports = {
     // 是否使用css分离插件
     extract: true,
     // 开启 CSS source maps?
-    sourceMap: false
+    sourceMap: false,
+    extract: {
+      ignoreOrder: true,
+      // 打包后css文件名称添加时间戳
+      filename: `css/[name].${process.env.NODE_ENV}.${process.env.VUE_APP_VERSION}.${version}.css`,
+      chunkFilename: `css/chunk.[id].${process.env.NODE_ENV}.${process.env.VUE_APP_VERSION}.${version}.css`
+    }
   }
 };

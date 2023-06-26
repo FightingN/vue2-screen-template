@@ -14,7 +14,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: "history", // 去掉url中的#
+  base: `/${process.env.VUE_APP_PACKAGENAME}/`
 });
 
 export default router;

@@ -4,8 +4,7 @@ import axios from "axios";
 // import { getCookie } from "utils/cookie";
 
 const request = axios.create({
-  // baseURL: config.apiUrl,
-  baseURL: "接口地址",
+  baseURL: process.env.VUE_APP_BASE_URL,
   timeout: 60 * 1000
 });
 
