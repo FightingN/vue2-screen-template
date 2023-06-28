@@ -1,22 +1,26 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import(/* webpackChunkName: "Test" */ '../views/Test.vue')
   }
-  // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-];
+]
 
 const router = new VueRouter({
   routes,
-  mode: "history", // 去掉url中的#
+  mode: 'history', // 去掉url中的#
   base: `/${process.env.VUE_APP_PACKAGENAME}/`
-});
+})
 
-export default router;
+export default router
