@@ -1,13 +1,8 @@
-// export default {
-//   apiUrl: getApiUrl() // 获取接口的baseURL
-// };
-// function getApiUrl() {
-//   // 需要区分 客户端生产环境、web端生产环境、本地开发环境
-//   if (process.env.NODE_ENV === "development") {
-//     return "测试环境接口地址";
-//   } else if (process.env.NODE_ENV === "production") {
-//     return "正式环境接口";
-//   } else {
-//     return "测试环境接口地址";
-//   }
-// }
+export function getIMSDK() {
+  return {
+    appId: '2882303761520141574',
+    appKey: '5352014189574',
+    appSecret: 'L2wAdg/bgbCTfZjtN3IXaQ==',
+    appAccount: 'test_1386'
+  }
+}

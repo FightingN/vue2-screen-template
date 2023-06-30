@@ -3,17 +3,9 @@
 </template>
 
 <script>
-import { setWaterMark } from '@/utils/common.js'
 export default {
   name: 'Home',
-  mounted() {
-    this.test()
-  },
-  methods: {
-    test() {
-      // setWaterMark('张晓宁', '1111111')
-    }
-  }
+  mounted() {}
 }
 </script>
 <style lang="scss" scoped>
