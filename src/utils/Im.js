@@ -35,9 +35,9 @@ export default class InitIm {
       })
     }
   }
+  // 获取token
   fetchMIMCToken() {
     let sendData = { appId: this.appId, appKey: this.appKey, appSecret: this.appSecret, appAccount: this.appAccount }
-    console.log("this.httpRequest('https://mimc.chat.xiaomi.net/api/account/token', sendData)", this.httpRequest('https://mimc.chat.xiaomi.net/api/account/token', sendData))
     return this.httpRequest('https://mimc.chat.xiaomi.net/api/account/token', sendData)
   }
   httpRequest(url, data) {
@@ -48,10 +48,16 @@ export default class InitIm {
 
     return JSON.parse(xhr.response)
   }
+  // 开启接收消息
+  startRegisterStatusChange() {}
   // 接收消息回调
   receiveP2PMsg(P2PMsg) {
     this.receiveP2PMsgResult({
       content: Base64.decode(JSON.parse(P2PMsg.getPayload()).payload)
     })
   }
+  // receiveP2PMsg(P2PMsg) {
+  //   console.log('1', Base64.decode(JSON.parse(P2PMsg.getPayload()).payload))
+  //   return { content: Base64.decode(JSON.parse(P2PMsg.getPayload()).payload) }
+  // }
 }
